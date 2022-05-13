@@ -90,7 +90,7 @@ const Register = () => {
                         <div className="column-right-inner">
                             <div className="grey-box"></div>
                             <div className="login-title">
-                                Welcome, Admin BCR
+                                Create New Account
                             </div>
                             <div className="form-group-container">
                                 {/* <% if (messages.error) { %>

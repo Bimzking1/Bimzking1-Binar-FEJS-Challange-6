@@ -97,7 +97,7 @@ const Login = () => {
                         <div className="column-right-inner">
                             <div className="grey-box"></div>
                             <div className="login-title">
-                                Welcome, Admin BCR
+                                Welcome, to BCR
                             </div>
                             <div className="form-group-container">
                                 {/* <% if (messages.error) { %>
