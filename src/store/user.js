@@ -23,6 +23,9 @@ const userSlice = createSlice({
         },
         removeUser: (state) => {
             state.data = null
+        },
+        loginGoogle: (state, action) => {
+            state.data = {...action.payload}
         }
     }
 })

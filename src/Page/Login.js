@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import userSlice from '../store/user'
 import jwtDecode from 'jwt-decode'
 import { useForm } from 'react-hook-form'
@@ -9,6 +9,14 @@ import '../Style/login.css'
 import { GoogleLogin } from 'react-google-login'
 
 const Login = () => {
+
+    const {data} = useSelector(state => state.user)
+
+    useEffect( () => {
+        if (data) {
+            navigate('/user')
+        }
+    }, [data])
 
     const { register, handleSubmit, formState } = useForm()
     const [loginStatus, setLoginStatus] = useState({
@@ -51,6 +59,7 @@ const Login = () => {
 
     const googleSuccessLogin = (res) => {
         console.log(res)
+        dispatch( userSlice.actions.loginGoogle(res.accessToken) )
     }
     
     const googleFailedLogin = (err) => {
