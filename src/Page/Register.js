@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import jwtDecode from 'jwt-decode'
 import { useDispatch } from 'react-redux'
 import userSlice from '../store/user'
+import '../Style/login.css'
 
 const Register = () => {
 
@@ -36,7 +37,7 @@ const Register = () => {
                 axios.get(`http://localhost:4000/users/${user.sub}`)
                 .then( res => {
                     dispatch( userSlice.actions.addUser({ userData: res.data }))
-                    navigate('/login')
+                    navigate('/')
                 })
             }
         }) .catch( err => {
@@ -95,7 +96,7 @@ const Register = () => {
                                 {/* <% if (messages.error) { %>
                                 <p style="color: red; font-style: italic"><%= messages.error %></p>
                                 <% } %> */}
-                                { ( !regStatus.success && regStatus.message ) && <p classname="text-sm text-red-500 italic">{regStatus.message}</p>}
+                                { ( !regStatus.success && regStatus.message ) && <p className="text-sm text-red-500 italic">{regStatus.message}</p>}
                                 <form onSubmit={ handleSubmit(formSubmitHandler) }>
                                     <div className="mb-4">
                                         <label htmlFor="email">Email</label>
@@ -117,9 +118,9 @@ const Register = () => {
                                         <input type="lastname" name="lastname" id="lastname" className="leading-loose border border-solid border-slate-500 block w-full" {...register('user_lastname', {required: true})} autoComplete="true" />
                                         <p className="text-sm text-red-500 italic">{formState.errors.user_lastname?.type === 'required' && "Last name is required"}</p>
                                     </div>
-                                    <button type="submit" className="btn button-signin">Sign Up</button>
+                                    <button type="submit" className="button-signin">Sign Up</button>
                                     <div className='confirmation'>
-                                        <p>Don't have an account?<Link to="/login" className="text-blue-600"> Login</Link></p>
+                                        <p>Don't have an account?<Link to="/" className="text-blue-600"> Login</Link></p>
                                     </div>
                                 </form>
                             </div>

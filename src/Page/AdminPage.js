@@ -18,7 +18,7 @@ const AdminPage = () => {
 			<div className="blue-box">
 				<div className="light-box"></div>
 			</div>
-			<a href="/dashboard" className="logo d-flex align-items-center"></a>
+			<a className="logo d-flex align-items-center"></a>
 			<i><BsList className="toggle-sidebar-btn"/></i>
 		</div>
 		
@@ -67,7 +67,7 @@ const AdminPage = () => {
     {/* Sidebar */}
 	<div id="sidebar" className="sidebar">
 		<div className="sidebar-options-container">
-			<a href="/dashboard"  className="sidebar-options">
+			<a className="sidebar-options">
 				<div className="sidebar-options-item">
 					<img src={DashboardLogo} alt="Dashboard" height="30px" width="30px"/>
 				</div>
@@ -75,7 +75,7 @@ const AdminPage = () => {
 					Dashboard
 				</div>
 			</a>
-			<a href="/car" className="sidebar-options">
+			<a className="sidebar-options">
 				<div className="sidebar-options-item">
 					<img src={CarsLogo} alt="Dashboard" height="30px" width="30px"/>
 				</div>

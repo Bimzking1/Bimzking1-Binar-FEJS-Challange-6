@@ -38,24 +38,18 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Routes>
-          <Route path="/" element={<Layout />}>
+          {/* <Route path="/" element={<Layout />}> */}
             {/* ALL */}
             {/* <Route index element={<HomeUser/>} /> */}
             {/* <Route path="/user" element={<HomeUser/>} /> */}
             {/* <Route path="/admin" element={<AdminPage/>} /> */}
             
-            <Route path="products/">
-              <Route index element={<Product />} />
-              <Route path=":id" element={<ProductDetail />} />
-            </Route>            
-            <Route path="categories" element={<h1>Categories</h1>} />
-            <Route path="shopping-cart" element={<ShoppingCart />} />
             <Route path="logout" element={<Logout/>}/>
             {/* <Route path="login" element={<Login />} /> */}
 
             {/* PUBLIC ONLY */}
             <Route path="/" element={<UnprotectedRoute/>}>
-              <Route path="login" element={<Login />} />
+              <Route path="/" element={<Login />} />
               <Route path="register" element={<Register />} />
             </Route>
 
@@ -65,7 +59,7 @@ function App() {
               <Route path="/admin" element={<AdminPage />} />
               <Route path="/user" element={<HomeUser />} />
             </Route>
-          </Route>
+          {/* </Route> */}
         </Routes>
       </div>
     </BrowserRouter>

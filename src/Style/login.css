@@ -49,10 +49,13 @@ html * {
 }
 
 .button-signin{
-    /* background-color: var(--primary-blue); */
-    background-color: #0D28A6;
-    color: red;
+    background-color: var(--primary-blue);
+    /* background-color: #0D28A6; */
+    color: black;
+    border: solid 2px black;
+    border-radius: 10px;
     width: 100%;
+    margin-bottom: 20px;
 }
 
 .form-group{

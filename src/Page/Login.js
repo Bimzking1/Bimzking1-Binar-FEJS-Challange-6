@@ -6,6 +6,7 @@ import userSlice from '../store/user'
 import jwtDecode from 'jwt-decode'
 import { useForm } from 'react-hook-form'
 import '../Style/login.css'
+import { GoogleLogin } from 'react-google-login'
 
 const Login = () => {
 
@@ -46,6 +47,14 @@ const Login = () => {
                 message: 'Sorry, something is wrong. Try again later.'
             })
         })
+    }
+
+    const googleSuccessLogin = (res) => {
+        console.log(res)
+    }
+    
+    const googleFailedLogin = (err) => {
+        console.log(err)
     }
 
   return (
@@ -97,11 +106,20 @@ const Login = () => {
                                         <input type="password" name="user_password" id="user_password" className="form-control" {...register('user_password',  {required: true})} autoComplete="true" />
                                         <p className="text-sm text-red-500 italic">{formState.errors.user_password?.type === 'required' && "Password is required"}</p>
                                     </div>
-                                    <button type="submit" className="btn button-signin">Sign In</button>
+                                    <button type="submit" className="button-signin">Sign In</button>
                                     <div className='confirmation'>
                                         <p>Don't have an account?<Link to="/register" className="text-blue-600"> Register</Link></p>
                                     </div>
                                 </form>
+                                <GoogleLogin
+                                    // clientId="609660745791-s86ic6q7bokhbd5iahgdrd28ga2d2rtq.apps.googleusercontent.com"
+                                    clientId="547625838498-ipttddpf985fa7gksm8qsiie11295r48.apps.googleusercontent.com"
+                                    buttonText="Login"
+                                    onSuccess={googleSuccessLogin}
+                                    onFailure={googleFailedLogin}
+                                    cookiePolicy={'single_host_origin'}
+                                    {...navigate("/user")}
+                                />
                             </div>
                         </div>
                     </div>
